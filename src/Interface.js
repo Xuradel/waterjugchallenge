@@ -120,18 +120,18 @@ const Interface = () => {
         while (jugX !== zAmount && jugY !== zAmount) {
             if (jugX === 0) {
                 jugX = jugXCapacity2;
-                addToSolution(bestSolutionSteps, jugX, jugY, `Fill Bucket X (${jugX})`);
+                addToSolution(bestSolutionSteps, jugX, jugY, `Fill Bucket Y (${jugX})`);
             }
 
             if (jugY === jugYCapacity2) {
                 jugY = 0;
-                addToSolution(bestSolutionSteps, jugX, jugY, 'Empty Bucket Y');
+                addToSolution(bestSolutionSteps, jugX, jugY, 'Empty Bucket X');
             }
 
             const pourAmount = Math.min(jugX, jugYCapacity2 - jugY);
             jugX -= pourAmount;
             jugY += pourAmount;
-            addToSolution(bestSolutionSteps, jugX, jugY, `Transfer (${pourAmount}) from Jug X to Jug Y`);
+            addToSolution(bestSolutionSteps, jugX, jugY, `Transfer (${pourAmount}) from Jug Y to Jug X`);
 
             if (jugX === zAmount || jugY === zAmount) {
                 setWorstSolution([...bestSolutionSteps]);
@@ -275,8 +275,8 @@ const Interface = () => {
                 <table className='output-table'>
                     <thead>
                         <tr>
-                            <th>Bucket X</th>
                             <th>Bucket Y</th>
+                            <th>Bucket X</th>
                             <th>Explanation</th>
                         </tr>
                     </thead>
