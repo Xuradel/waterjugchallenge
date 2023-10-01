@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Water Jug Riddle Solver ( 2 jugs method )
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to run
+1. Clone the repository by doing git clone https://github.com/Xuradel/waterjugchallenge.git in your terminal.
+2. Make sure you're in the main project directory, where the public and src folders are located.
+3. Run npm i to install dependencies ( node modules )
+4. Run npm run start to start the application
 
-## Available Scripts
+## How to use the app
+1. Put values in Jug X, Jug Y and Amount.
+2. Press Solve.
 
-In the project directory, you can run:
+### Things to consider
+- There is validation implemented but for your information:
+- Numbers can't be negative.
+- Numbers can't be 0.
+- The amount can't be the same as a jug ( there would be no reason since the solution would be to fill once ).
+- The amount can't exceed the value of any of the jugs, since it would be physically impossible to solve.
+- Sometimes there are no solutions, you will be notified.
 
-### `npm start`
+### Approach to the riddle
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Keep track of all variables, jug's sizes, amount desired, arrays for the solutions, and an error text ( for error handling )
+2. Create function that validates data.
+3. Created a function that handles saving every step recorded into the array.
+4. Start solving the riddle.
+5. Start by validating the inputs ( as mentioned in the things to consider ).
+6. Create variables that will keep track of water levels and changes.
+7. Create a loop that will execute while we have not found a solution, or until it stop's because there is none.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Finding the solution
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fill Jug X and then empty it into Jug Y.
+2. If Jug X is empty, fill it again.
+3. If jug Y is full, empty it.
+4. Repeat these steps until either Jug X or Jug Y water levels are same as the desired amount.
+5. Save the result in an array.
+6. Repeat the same process but instead Jug Y fills Jug X.
+7. Save the result in an array.
+7. Whichever has the least steps until the solution is found, is the most efficient.
