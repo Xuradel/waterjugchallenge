@@ -1,10 +1,12 @@
 # Water Jug Riddle Solver ( 2 jugs method )
 
 ## How to run
-1. Clone the repository by doing git clone https://github.com/Xuradel/waterjugchallenge.git in your terminal.
-2. Make sure you're in the main project directory, where the public and src folders are located.
-3. Run npm i to install dependencies ( node modules )
-4. Run npm run start to start the application
+1. Create a folder anywhere and open it with visual studio code.
+2. Open the terminal and clone the repository by doing git clone https://github.com/Xuradel/waterjugchallenge.git in your terminal.
+3. Change directory to project directory by doing cd waterjugchallenge in your terminal.
+4. Make sure you're in the main project directory, where the public and src folders are located.
+5. Run npm i to install dependencies ( node modules )
+6. Run npm run start to start the application
 
 ## How to use the app
 1. Put values in Jug X, Jug Y and Amount.
